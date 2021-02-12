@@ -50,7 +50,20 @@ i18n.configure({
  */
 client.on("ready", () => {
   console.log(`${client.user.username} ready!`);
-  client.user.setActivity(`${PREFIX}help and ${PREFIX}play`, { type: "LISTENING" });
+    setInterval(() => {
+  let totalSeconds = (client.uptime / 1000);
+  let days = Math.floor(totalSeconds / 86400);
+  totalSeconds %= 86400;
+  let hours = Math.floor(totalSeconds / 3600);
+  totalSeconds %= 3600;
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = Math.floor(totalSeconds % 60);
+  const status = [
+    `,help | TCH Music | ${hours}j, ${minutes}m Uptime`
+    // `${client.guilds.cache.size} Servers | ${client.users.cache.size} Total Users`
+    ]
+    client.user.setActivity(status[Math.floor(Math.random() * status.length)], {type : "PLAYING"}) //watching bisa kalian ganti sama playing dan semacamnya
+  }, 10000)
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
