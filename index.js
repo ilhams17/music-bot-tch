@@ -63,7 +63,7 @@ client.on("ready", () => {
     // `${client.guilds.cache.size} Servers | ${client.users.cache.size} Total Users`
     ]
     client.user.setActivity(status[Math.floor(Math.random() * status.length)], {type : "PLAYING"}) //watching bisa kalian ganti sama playing dan semacamnya
-  }, 10000)
+  }, 60000)
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
